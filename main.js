@@ -96,13 +96,16 @@ console.log(vanePluck(user, dato5()));
 
 //without elimina elementos de x cantidad quedando el arreglo con los elementos no eliminados
 function vaneWithout (array, callback) {
+    let newArray = [];
+    newArray = Array.from(array);
     let numero = callback;
     for(let i=0; i<numero.length; i++){  
         let num = numero[i];
-        let num2= array.indexOf(num);
-        let aux = array.splice(num2, 1);
+        let num2= newArray.indexOf(num);
+        let aux = newArray.splice(num2, 1);
     }
-    document.getElementById('resultado').innerHTML += `${array}<br>`;
-    return array;
+    document.getElementById('resultado').innerHTML += `<p>arreglo antiguo: ${array}</p><br>`;
+    document.getElementById('resultado').innerHTML += `<p>arreglo nuevo: ${newArray}</p><br>`;
+    return newArray;
 }
 console.log(vaneWithout(ar, dato4()));
